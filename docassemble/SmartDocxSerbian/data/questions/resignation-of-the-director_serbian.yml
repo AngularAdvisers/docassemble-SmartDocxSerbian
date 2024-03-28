@@ -1,0 +1,76 @@
+---
+features:
+  css: docassemble.playground1:data/static/custom-styles.css
+---
+metadata:
+  title: |
+    Corporate - Reject
+  short title: |
+    Corporate - Reject
+  description: |
+    No description
+---
+objects:
+  - client: Individual
+  - lawyer: Individual
+  - defendant: Individual
+  - court: Organisation
+---
+mandatory: True
+code: |
+  multi_user = True
+---
+code: |
+  court_name = ''
+  client_name_first = ''
+  start_data = None
+  client.name.first = 'Bill'
+  client.name.last = 'Best'
+  client.address = '123 Main Street, Cacak'
+  client.jmbg = '12345'
+  
+  lawyer.name.first = 'Bill'
+  lawyer.name.last = 'Best'
+  lawyer.address = '123 Secondary Street, Belgrade'
+  
+  defendant.name.first = 'Eva'
+  defendant.name.last = 'Smith'
+  defendant.address = '5th Ave, NY'
+  defendant.jmbg = '54321'
+  
+  custody_party = 'Bane Nicovic'
+---
+mandatory: True
+question: |
+  Компанија информација
+fields:
+  - Датум одбијања: case_date
+    datatype: date
+  - Име компаније: company_name
+    datatype: text
+  - Матични број: company_id
+    datatype: text
+  - Разлог одбијања: rejection_reason
+    datatype: text
+    required: False
+  - Прималац одбијања: rejection_recipient
+    datatype: text
+---
+mandatory: True
+code: |
+  client.name.first = sd_client_first_name
+  client.name.last = sd_client_last_name
+  
+  custody_party = 'Bane Nicovic'
+---
+question: Ево вашег документа.
+attachments:
+  - name: Ostavka
+    filename: ostavka
+    docx template file: resignation-of-the-director_serbian.docx
+    valid formats:
+      - pdf
+      - docx
+mandatory: True
+buttons:
+  - Save & Exit: Настави
