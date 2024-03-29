@@ -1,0 +1,67 @@
+---
+include:
+  - init-data.yml
+---
+include:
+  - init-data.ymlfeatures:
+---  
+  css: docassemble.playground1:data/static/custom-styles.css
+---
+metadata:
+  title: |
+    одштетни захтев за возило
+  short title: |
+    одштетни захтев за возило
+  description: |
+    одштетни захтев за возило
+---
+objects:
+  - client: Individual
+  - lawyer: Individual
+  - defendant: Individual
+  - court: Organisation
+---
+mandatory: True
+code: |
+  multi_user = True
+---
+code: |
+  court_name = ''
+  client_name_first = ''
+  client_name_last = ''
+  start_data = None
+  client.name.first = ''
+  client.name.last = ''
+  client.address = ''
+  client.jmbg = ''
+  
+  lawyer.name.first = ''
+  lawyer.name.last = ''
+  lawyer.address = ''
+  
+  defendant.name.first = ''
+  defendant.name.last = ''
+  defendant.address = ''
+  defendant.jmbg = ''
+  
+  custody_party = ''
+---
+mandatory: True
+question: Here is your document.
+attachment:
+  - name: Summary of Benefits
+    # filename: benefits_summary
+    file: fam_file
+    variable name: doc_file
+    docx template file: damage-claim-for-vehicle_serbian
+    valid formats:
+      - pdf
+      - docx
+buttons:
+  - Save & Exit: continue
+---
+mandatory: True
+code: |
+  doc_path = doc_file.path()
+  bucket_name = 'smart-docx-preview'
+  command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)
