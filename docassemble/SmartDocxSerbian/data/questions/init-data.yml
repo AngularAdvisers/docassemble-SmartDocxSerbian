@@ -66,6 +66,8 @@ code: |
     import os
     import docassemble.base.config
 
+    s3_config = docassemble.base.config.daconfig.get('s3', {})
+
     aws_access_key_id = s3_config.get('access key id', '')
     aws_secret_access_key = s3_config.get('secret access key', '')
   
