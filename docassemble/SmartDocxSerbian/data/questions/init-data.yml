@@ -61,11 +61,10 @@ code: |
   sd_amount = ''
 ---
 code: |
-  import docassemble.base.config
-
   def upload_to_s3(doc_path, bucket_name, file_name):
     import boto3
     import os
+    import docassemble.base.config
 
     aws_access_key_id = s3_config.get('access key id', '')
     aws_secret_access_key = s3_config.get('secret access key', '')
