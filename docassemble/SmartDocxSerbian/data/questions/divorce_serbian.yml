@@ -169,13 +169,11 @@ code: |
 mandatory: True
 question: Here is your document.
 attachment:
-  - name: Summary of Benefits
-    # filename: benefits_summary
+  - name: Divorce
     file: fam_file
     variable name: doc_file
     docx template file: divorce_serbian.docx
     valid formats:
-      - pdf
       - docx
 buttons:
   - Save & Exit: continue
@@ -184,4 +182,7 @@ mandatory: True
 code: |
   doc_path = doc_file.path()
   bucket_name = 'smart-docx-preview'
+
+  upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
+
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)
