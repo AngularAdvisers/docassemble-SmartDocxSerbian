@@ -176,7 +176,7 @@ attachment:
     valid formats:
       - docx
 buttons:
-  - Save & Exit: continue
+  - Сачувај и изађи: continue
 ---
 mandatory: True
 code: |

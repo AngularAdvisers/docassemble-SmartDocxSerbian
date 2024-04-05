@@ -76,4 +76,4 @@ attachments:
       - docx
 mandatory: True
 buttons:
-  - Save & Exit: Настави
+  - Сачувај и изађи: Настави
