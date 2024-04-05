@@ -22,6 +22,7 @@ objects:
 mandatory: True
 code: |
   multi_user = True
+  set_language('sr')
 ---
 code: |
   court_name = ''
