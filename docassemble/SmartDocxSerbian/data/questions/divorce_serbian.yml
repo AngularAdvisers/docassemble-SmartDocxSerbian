@@ -167,7 +167,7 @@ code: |
   custody_party = ''
 ---
 mandatory: True
-question: Here is your document.
+question: Ovde je vaš dokument.
 attachment:
   - name: Divorce
     file: fam_file

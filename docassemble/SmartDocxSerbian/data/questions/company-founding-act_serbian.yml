@@ -47,7 +47,7 @@ code: |
   custody_party = ''
 ---
 mandatory: True
-question: Here is your document.
+question: Ovde je vaš dokument.
 attachment:
   - name: Summary of Benefits
     # filename: benefits_summary

@@ -61,7 +61,7 @@ code: |
   client.name.last = sd_client_last_name
   custody_party = 'Bane Nicovic'
 ---
-question: Here is your document.
+question: Ovde je vaš dokument.
 attachments:
   - name: Ostavka
     filename: ostavka
