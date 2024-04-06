@@ -37,7 +37,7 @@ objects:
   client_address: Address
 ---
 question: |
-  What is your Client's address?
+  Која је адреса вашег клијента?
 fields:
   - Адреса: client_address.address
   - Јединица: client_address.unit
@@ -56,7 +56,7 @@ objects:
   - lawyer: Individual
 ---
 question: |
-  What is the lawyer's name?
+  Како се зове адвокат?
 fields:
   - Име: lawyer.name.first
   - Средње име: lawyer.name.middle
