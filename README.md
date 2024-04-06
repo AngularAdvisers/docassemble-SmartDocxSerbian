@@ -1,1 +1,1 @@
-SmartDocx Serbian
+SmartDocx sr

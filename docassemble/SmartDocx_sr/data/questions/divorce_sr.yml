@@ -172,8 +172,9 @@ attachment:
   - name: Divorce
     file: fam_file
     variable name: doc_file
-    docx template file: divorce_serbian.docx
+    docx template file: divorce_sr.docx
     valid formats:
+      - pdf
       - docx
 buttons:
   - Сачувај и изађи: continue

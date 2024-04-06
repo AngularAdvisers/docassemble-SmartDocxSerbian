@@ -23,13 +23,13 @@ objects:
   - client: Individual
 ---
 question: |
-  What is the client's name?
+  Како се зове клијент?
 fields:
-  - Client's First Name: client.name.first
-  - Client's Middle Name: client.name.middle
+  - Име: client.name.first
+  - Средње име: client.name.middle
     required: False
-  - Client's Last Name: client.name.last
-  - Client's Suffix: client.name.suffix
+  - Презиме: client.name.last
+  - Презиме: client.name.suffix
     required: False
     code: name_suffix()
 ---
@@ -39,15 +39,15 @@ objects:
 question: |
   What is your Client's address?
 fields:
-  - Address: client_address.address
-  - Unit: client_address.unit
+  - Адреса: client_address.address
+  - Јединица: client_address.unit
     required: False
-  - City: client_address.city
-  - State: client_address.state
+  - Цити: client_address.city
+  - Држава: client_address.state
     required: False
-  - Postal Code: client_address.postal_code
+  - поштански код: client_address.postal_code
     required: False
-  - Country: client_address.country
+  - Држава: client_address.country
     code: |
       countries_list()
     required: False
@@ -58,11 +58,11 @@ objects:
 question: |
   What is the lawyer's name?
 fields:
-  - Lawyer's First Name: lawyer.name.first
-  - Lawyer's Middle Name: lawyer.name.middle
+  - Име: lawyer.name.first
+  - Средње име: lawyer.name.middle
     required: False
-  - Lawyer's Last Name: lawyer.name.last
-  - Lawyer's Suffix: lawyer.name.suffix
+  - Презиме: lawyer.name.last
+  - Презиме: lawyer.name.suffix
     required: False
     code: name_suffix()
 ---
@@ -70,23 +70,23 @@ objects:
   lawyer_address: Address
 ---
 question: |
-  What is your Lawyer's address?
+  Која је адреса вашег адвоката?
 fields:
-  - Address: lawyer_address.address
-  - Unit: lawyer_address.unit
+  - Адреса: lawyer_address.address
+  - Јединица: lawyer_address.unit
     required: False
-  - City: lawyer_address.city
-  - State: lawyer_address.state
+  - Цити: lawyer_address.city
+  - Држава: lawyer_address.state
     required: False
-  - Postal Code: lawyer_address.postal_code
+  - поштански код: lawyer_address.postal_code
     required: False
-  - Country: lawyer_address.country
+  - Држава: lawyer_address.country
     code: |
       countries_list()
     required: False
 ---
 question: |
-  What is the legal service agreement fee amount?
+  Колики је износ накнаде за уговор о правним услугама?
 fields:
   - Value: fee_amount
     datatype: currency
@@ -97,25 +97,26 @@ under: |
   ${ lawyer_address }
 ---
 question: |
-  What date did the client sign the agreement?
+  Ког датума је клијент потписао уговор?
 fields:
   - Date: date_signed
     datatype: date
 ---
-question: Please sign below
+question: Молимо потпишите се испод
 subquestion: |
-  By signing below, you acknowledge that your answers to the questions
-  in this interview were truthful, to the best of your knowledge and you
-  agree to the terms of the agreement.
+  BПотписивањем у наставку потврђујете да су
+  ваши одговори на питања у овом интервјуу 
+  били истинити, према вашем најбољем сазнању 
+  и да сте сагласни са условима споразума.
 signature: client_signature
 under: |
   ${ client }
 ---
 mandatory: True
 question: |
-  Your documents are ready. Please print and file!
+  Ovde je vaš dokument.
 attachment:
-  - name: Leagal Services Agreenment Document
+  - name: Правни Услуге Договор Документ
     filename: leagal_services_agreenment_document
     content: |
       [BOLDCENTER] Leagal Services Agreenment Document

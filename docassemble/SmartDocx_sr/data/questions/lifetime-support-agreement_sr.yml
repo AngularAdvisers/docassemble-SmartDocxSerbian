@@ -22,7 +22,6 @@ objects:
 mandatory: True
 code: |
   multi_user = True
-  set_language('sr')
 ---
 code: |
   court_name = ''
@@ -48,40 +47,33 @@ mandatory: True
 question: |
   Компанија информација
 fields:
-  - Датум ликвидације: case_date
+  - Датум одбијања: case_date
     datatype: date
   - Име компаније: company_name
     datatype: text
-  - Матични број: company_number
+  - Матични број: company_id
+    datatype: text
+  - Разлог одбијања: rejection_reason
+    datatype: text
+    required: False
+  - Прималац одбијања: rejection_recipient
     datatype: text
 ---
 mandatory: True
 code: |
   client.name.first = sd_client_first_name
   client.name.last = sd_client_last_name
+  
   custody_party = 'Bane Nicovic'
 ---
-question: Ovde je vaš dokument.
+question: Ево вашег документа.
 attachments:
   - name: Ostavka
     filename: ostavka
-    docx template file: statement-of-liquidation-manager_serbian.docx
-    variable name: doc_file
+    docx template file: lifetime-support-agreement_sr.docx
     valid formats:
       - pdf
       - docx
 mandatory: True
 buttons:
   - Сачувај и изађи: Настави
----
-mandatory: True
-code: |
-  doc_path = doc_file.path()
-  bucket_name = 'smart-docx-preview'
-  
-  matterId = matter_id
-  workItemId = work_item_id
-  fileName = filename
-   
-  upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
-  command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)

@@ -9,11 +9,11 @@ include:
 ---
 metadata:
   title: |
-    одштетни захтев за возило
+    посреднички уговор
   short title: |
-    одштетни захтев за возило
+    посреднички уговор
   description: |
-    одштетни захтев за возило
+    посреднички уговор
 ---
 objects:
   - client: Individual
@@ -53,7 +53,7 @@ attachment:
     # filename: benefits_summary
     file: fam_file
     variable name: doc_file
-    docx template file: damage-claim-for-vehicle_serbian
+    docx template file: intermediary-agreeent_sr.docx
     valid formats:
       - pdf
       - docx
@@ -64,6 +64,6 @@ mandatory: True
 code: |
   doc_path = doc_file.path()
   bucket_name = 'smart-docx-preview'
-  
+
   upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)

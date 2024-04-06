@@ -43,10 +43,10 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
                 out.setdefault(package, []).append(prefix+name)
     return out
 
-setup(name='docassemble.SmartDocxSerbian',
+setup(name='docassemble.SmartDocx_sr',
       version='1.0.8',
       description=('A docassemble extension.'),
-      long_description='SmartDocx Serbian',
+      long_description='SmartDocx sr',
       long_description_content_type='text/markdown',
       author='Bill Best',
       author_email='bill@angularadvisors.com',
@@ -56,6 +56,6 @@ setup(name='docassemble.SmartDocxSerbian',
       namespace_packages=['docassemble'],
       install_requires=[],
       zip_safe=False,
-      package_data=find_package_data(where='docassemble/SmartDocxSerbian/', package='docassemble.SmartDocxSerbian'),
+      package_data=find_package_data(where='docassemble/SmartDocx_sr/', package='docassemble.SmartDocx_sr'),
      )
 
