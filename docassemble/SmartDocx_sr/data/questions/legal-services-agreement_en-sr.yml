@@ -90,6 +90,8 @@ question: |
 fields:
   - Value: fee_amount
     datatype: currency
+    min: 0
+    currency symbol: €    
 under: |
   ${ client }
   ${ client_address }
