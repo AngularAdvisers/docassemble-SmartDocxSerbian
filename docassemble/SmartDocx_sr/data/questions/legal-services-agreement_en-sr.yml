@@ -29,7 +29,7 @@ fields:
     default: |
       ${ sd_client_first_name }  
   - Средње име: client.name.middle
-    default: Paul
+    default:
     required: False
   - Презиме: client.name.last
     default: |
@@ -93,8 +93,10 @@ fields:
 question: |
   Колики је износ накнаде за уговор о правним услугама?
 fields:
-  - Value: fee_amount
+  - Value: fee
     datatype: currency
+    code |
+    fee_amount = "{:.2f}".format(fee)
     min: 0
     currency symbol: €    
 under: |
