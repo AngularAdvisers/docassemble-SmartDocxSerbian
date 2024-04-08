@@ -135,8 +135,8 @@ attachment:
       Date Client Sign Agreement ${ date_signed }
       Client Signature: ${ client_signature }    
     docx template file: legal-services-agreement_en-sr.docx
+    variable name: doc_file
     valid formats:
-      - pdf
       - docx
 buttons:
   - Сачувај и изађи: continue
