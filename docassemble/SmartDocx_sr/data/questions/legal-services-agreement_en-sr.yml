@@ -96,7 +96,6 @@ fields:
   - Value: fee
     datatype: currency
     min: 0
-    currency_symbol: €  # Correct the property name and ensure proper indentation  
 under: |
   ${ client }
   ${ client_address }
