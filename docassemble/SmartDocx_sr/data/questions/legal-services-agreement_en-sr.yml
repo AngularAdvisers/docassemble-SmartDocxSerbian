@@ -95,7 +95,7 @@ question: |
 fields:
   - Value: fee
     datatype: currency
-    code |
+    code: |
     fee_amount = "{:.2f}".format(fee)
     min: 0
     currency symbol: €    
