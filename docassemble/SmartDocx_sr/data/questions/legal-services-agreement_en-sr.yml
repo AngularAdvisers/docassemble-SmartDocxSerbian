@@ -28,7 +28,7 @@ fields:
   - Име: client.name.first
     default: |
       ${ sd_client_first_name }  
-  - Средње име.: client.name.middle
+  - Средње име: client.name.middle
     default: Paul
     required: False
   - Презиме: client.name.last
