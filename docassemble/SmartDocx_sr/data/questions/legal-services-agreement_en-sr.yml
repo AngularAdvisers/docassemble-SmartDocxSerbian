@@ -3,7 +3,7 @@ include:
   - init-data.yml
 ---
 features:
-  css: docassemble.SmartDocx_sr:static/css/custom_styles.css
+  css: docassemble.SmartDocx_sr:static/css/sd.css
 ---
 metadata:
   title: |
