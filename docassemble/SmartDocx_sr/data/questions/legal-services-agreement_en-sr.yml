@@ -95,9 +95,6 @@ question: |
 fields:
   - Value: fee
     datatype: currency
-    code: |
-      fee = 2
-      fee_amount = "{:.2f}".format(fee)
     min: 0
     currency_symbol: €  # Correct the property name and ensure proper indentation  
 under: |
@@ -105,6 +102,9 @@ under: |
   ${ client_address }
   ${ lawyer }
   ${ lawyer_address }
+---
+code: |
+  fee_amount = "{:.2f}".format(fee)
 ---
 question: |
   Ког датума је клијент потписао уговор?
