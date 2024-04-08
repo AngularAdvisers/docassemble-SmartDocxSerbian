@@ -26,9 +26,13 @@ question: |
   Како се зове клијент?
 fields:
   - Име: client.name.first
+    default: |
+      ${ sd_client_first_name }  
   - Средње име: client.name.middle
     required: False
   - Презиме: client.name.last
+    default: |
+      ${ sd_client_last_name }    
   - Презиме: client.name.suffix
     required: False
     code: name_suffix()
