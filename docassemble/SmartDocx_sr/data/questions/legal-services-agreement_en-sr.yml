@@ -96,9 +96,9 @@ fields:
   - Value: fee
     datatype: currency
     code: |
-    fee_amount = "{:.2f}".format(fee)
+      fee_amount = "{:.2f}".format(fee)
     min: 0
-    currency symbol: €    
+    currency_symbol: €  # Correct the property name and ensure proper indentation  
 under: |
   ${ client }
   ${ client_address }
