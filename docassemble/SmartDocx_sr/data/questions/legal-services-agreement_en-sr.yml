@@ -96,6 +96,7 @@ fields:
   - Value: fee
     datatype: currency
     code: |
+      fee = 2
       fee_amount = "{:.2f}".format(fee)
     min: 0
     currency_symbol: €  # Correct the property name and ensure proper indentation  
