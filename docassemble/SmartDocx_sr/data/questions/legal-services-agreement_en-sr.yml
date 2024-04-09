@@ -38,6 +38,10 @@ objects:
   - lsa_lawyer_address: Address
 ---
 mandatory: True
+code: |
+  set_language('sr')
+---
+mandatory: True
 progress: 1
 section: Име клијента
 question: |
