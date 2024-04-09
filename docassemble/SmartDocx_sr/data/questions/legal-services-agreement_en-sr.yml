@@ -41,13 +41,13 @@ question: |
   Како се зове клијент?
 fields:
   - Име: client.name.first
-    default: |
-      ${ sd_client_first_name }  
+#    default: |
+#      ${ sd_client_first_name }  
   - Средње име: client.name.middle
     required: False
   - Презиме: client.name.last
-    default: |
-      ${ sd_client_last_name }    
+#    default: |
+#      ${ sd_client_last_name }    
   - Презиме: client.name.suffix
     required: False
     code: name_suffix()
@@ -62,18 +62,18 @@ question: |
   Која је адреса вашег клијента?
 fields:
   - Адреса: client_address.address
-    default: |
-      ${ sd_client_street }   
+#    default: |
+#      ${ sd_client_street }   
   - Јединица: client_address.unit
     required: False
   - Цити: client_address.city
-    default: |
-      ${ sd_client_city }    
+#    default: |
+#      ${ sd_client_city }    
   - Држава: client_address.state
     required: False
   - поштански код: client_address.postal_code
-    default: |
-      ${ sd_client_zip }    
+#    default: |
+#      ${ sd_client_zip }    
     required: False
   - Држава: client_address.country
     code: |
@@ -90,13 +90,13 @@ question: |
   Како се зове адвокат?
 fields:
   - Име: lawyer.name.first
-    default: |
-      ${ sd_lawyer_first_name }    
+#    default: |
+#      ${ sd_lawyer_first_name }    
   - Средње име: lawyer.name.middle
     required: False
   - Презиме: lawyer.name.last
-    default: |
-      ${ sd_lawyer_last_name }    
+#    default: |
+#      ${ sd_lawyer_last_name }    
   - Презиме: lawyer.name.suffix
     required: False
     code: name_suffix()
@@ -111,18 +111,18 @@ question: |
   Која је адреса вашег адвоката?
 fields:
   - Адреса: lawyer_address.address
-    default: |
-      ${ sd_lawyer_street }    
+#    default: |
+#      ${ sd_lawyer_street }    
   - Јединица: lawyer_address.unit
     required: False
   - Цити: lawyer_address.city
-    default: |
-      ${ sd_lawyer_city }    
+#    default: |
+#      ${ sd_lawyer_city }    
   - Држава: lawyer_address.state
     required: False
   - поштански код: lawyer_address.postal_code
-    default: |
-      ${ sd_lawyer_zip }    
+#    default: |
+#      ${ sd_lawyer_zip }    
     required: False
   - Држава: lawyer_address.country
     code: |
