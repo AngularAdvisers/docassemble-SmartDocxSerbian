@@ -61,7 +61,7 @@ question: |
   Која је адреса вашег клијента?
 fields:
   - Адреса: client_address.address
-     default: |
+    default: |
       ${ sd_client_street }   
   - Јединица: client_address.unit
     required: False
