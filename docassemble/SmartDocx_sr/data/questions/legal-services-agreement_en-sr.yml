@@ -17,9 +17,9 @@ include:
   - init-data.yml
 ---
 features:
+  css: docassemble.SmartDocx_sr:static/sd.css
   navigation: True
   progress bar: True  
-  css: docassemble.SmartDocx_sr:static/sd.css
 ---
 sections:
   - Име клијента
