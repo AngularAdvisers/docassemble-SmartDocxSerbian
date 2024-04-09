@@ -64,14 +64,14 @@ fields:
   - Адреса: lsa_client_address.address
     default: |
       ${ sd_client_street }   
-  - Јединица: lsa_client_address.unit
+  - Број: lsa_client_address.unit
     required: False
-  - Цити: lsa_client_address.city
+  - Град: lsa_client_address.city
     default: |
       ${ sd_client_city }    
   - Држава: lsa_client_address.state
     required: False
-  - поштански код: lsa_client_address.postal_code
+  - Поштански број: lsa_client_address.postal_code
     default: |
       ${ sd_client_zip }    
     required: False
@@ -107,14 +107,14 @@ fields:
   - Адреса: lsa_lawyer_address.address
     default: |
       ${ sd_lawyer_street }    
-  - Јединица: lsa_lawyer_address.unit
+  - Број: lsa_lawyer_address.unit
     required: False
-  - Цити: lsa_lawyer_address.city
+  - Град: lsa_lawyer_address.city
     default: |
       ${ sd_lawyer_city }    
   - Држава: lsa_lawyer_address.state
     required: False
-  - поштански код: lsa_lawyer_address.postal_code
+  - Поштански број: lsa_lawyer_address.postal_code
     default: |
       ${ sd_lawyer_zip }    
     required: False
