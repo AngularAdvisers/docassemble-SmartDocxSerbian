@@ -32,7 +32,10 @@ sections:
   - Завршено
 ---
 objects:
-  - client: Individual
+  - client_individual: Individual
+  - client_address: Address
+  - lawyer_individual: Individual
+  - lawyer_address: Address
 ---
 mandatory: True
 progress: 1
@@ -40,21 +43,18 @@ section: Име клијента
 question: |
   Како се зове клијент?
 fields:
-  - Име: client.name.first
+  - Име: client_individual.name.first
     default: |
       ${ sd_client_first_name }  
-  - Средње име: client.name.middle
+  - Средње име: client_individual.name.middle
     required: False
-  - Презиме: client.name.last
+  - Презиме: client_individual.name.last
     default: |
       ${ sd_client_last_name }    
-  - Презиме: client.name.suffix
+  - Презиме: client_individual.name.suffix
     required: False
     code: name_suffix()
----
-objects:
-  client_address: Address
----
+---    
 mandatory: True
 progress: 15
 section: Адреса клијента
@@ -80,29 +80,23 @@ fields:
       countries_list()
     required: False
 ---
-objects:
-  - lawyer: Individual
----
 mandatory: True
 progress: 30
 section: Име адвоката
 question: |
   Како се зове адвокат?
 fields:
-  - Име: lawyer.name.first
+  - Име: lawyer_individual.name.first
     default: |
       ${ sd_lawyer_first_name }    
-  - Средње име: lawyer.name.middle
+  - Средње име: lawyer_individual.name.middle
     required: False
-  - Презиме: lawyer.name.last
+  - Презиме: lawyer_individual.name.last
     default: |
       ${ sd_lawyer_last_name }    
-  - Презиме: lawyer.name.suffix
+  - Презиме: lawyer_individual.name.suffix
     required: False
     code: name_suffix()
----
-objects:
-  lawyer_address: Address
 ---
 mandatory: True
 progress: 45
@@ -140,9 +134,9 @@ fields:
     min: 0
     currency symbol: €    
 under: |
-   Клијент: ${ client }
+   Клијент: ${ client_individual }
    Клијент Адреса: ${ client_address }
-   Адвокат: ${ lawyer }
+   Адвокат: ${ lawyer_individual }
    Адвокат Адреса: ${ lawyer_address }
 ---
 code: |
@@ -168,9 +162,9 @@ subquestion: |
   и да сте сагласни са условима споразума.
 signature: client_signature
 under: |
-  Клијент: ${ client }<br>
+  Клијент: ${ client_individual }<br>
   Клијент Адреса: ${ client_address }<br>
-  Адвокат: ${ lawyer }<br>
+  Адвокат: ${ lawyer_individual }<br>
   Адвокат Адреса: ${ lawyer_address }<br>
   Надокнада Износ: ${ fee_amount } <br>
   Датум Потписан: ${ date_signed }  
