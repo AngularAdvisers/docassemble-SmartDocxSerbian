@@ -137,7 +137,7 @@ under: |
    Клијент: ${ lsa_client_individual }
    Клијент Адреса: ${ lsa_client_address }
    Адвокат: ${ lsa_lawyer_individual }
-   Адвокат Адреса: ${ lawyer_address }
+   Адвокат Адреса: ${ lsa_lawyer_address }
 ---
 code: |
   lsa_fee_amount = "{:.2f}".format(lsa_fee)
