@@ -71,7 +71,7 @@ fields:
       ${ sd_client_city }    
   - Држава: lsa_client_address.state
     required: False
-  - поштански код: client_address.postal_code
+  - поштански код: lsa_client_address.postal_code
     default: |
       ${ sd_client_zip }    
     required: False
