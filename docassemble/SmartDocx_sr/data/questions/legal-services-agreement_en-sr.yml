@@ -32,10 +32,10 @@ sections:
   - Завршено
 ---
 objects:
-  - client_individual: Individual
-  - client_address: Address
-  - lawyer_individual: Individual
-  - lawyer_address: Address
+  - lsa_client_individual: Individual
+  - lsa_client_address: Address
+  - lsa_lawyer_individual: Individual
+  - lsa_lawyer_address: Address
 ---
 mandatory: True
 progress: 1
@@ -43,15 +43,15 @@ section: Име клијента
 question: |
   Како се зове клијент?
 fields:
-  - Име: client_individual.name.first
+  - Име: lsa_client_individual.name.first
     default: |
       ${ sd_client_first_name }  
-  - Средње име: client_individual.name.middle
+  - Средње име: lsa_client_individual.name.middle
     required: False
-  - Презиме: client_individual.name.last
+  - Презиме: lsa_client_individual.name.last
     default: |
       ${ sd_client_last_name }    
-  - Презиме: client_individual.name.suffix
+  - Презиме: lsa_client_individual.name.suffix
     required: False
     code: name_suffix()
 ---    
@@ -61,21 +61,21 @@ section: Адреса клијента
 question: |
   Која је адреса вашег клијента?
 fields:
-  - Адреса: client_address.address
+  - Адреса: lsa_client_address.address
     default: |
       ${ sd_client_street }   
-  - Јединица: client_address.unit
+  - Јединица: lsa_client_address.unit
     required: False
-  - Цити: client_address.city
+  - Цити: lsa_client_address.city
     default: |
       ${ sd_client_city }    
-  - Држава: client_address.state
+  - Држава: lsa_client_address.state
     required: False
   - поштански код: client_address.postal_code
     default: |
       ${ sd_client_zip }    
     required: False
-  - Држава: client_address.country
+  - Држава: lsa_client_address.country
     code: |
       countries_list()
     required: False
@@ -86,15 +86,15 @@ section: Име адвоката
 question: |
   Како се зове адвокат?
 fields:
-  - Име: lawyer_individual.name.first
+  - Име: lsa_lawyer_individual.name.first
     default: |
       ${ sd_lawyer_first_name }    
-  - Средње име: lawyer_individual.name.middle
+  - Средње име: lsa_lawyer_individual.name.middle
     required: False
-  - Презиме: lawyer_individual.name.last
+  - Презиме: lsa_lawyer_individual.name.last
     default: |
       ${ sd_lawyer_last_name }    
-  - Презиме: lawyer_individual.name.suffix
+  - Презиме: lsa_lawyer_individual.name.suffix
     required: False
     code: name_suffix()
 ---
@@ -104,21 +104,21 @@ section: Адреса адвоката
 question: |
   Која је адреса вашег адвоката?
 fields:
-  - Адреса: lawyer_address.address
+  - Адреса: lsa_lawyer_address.address
     default: |
       ${ sd_lawyer_street }    
-  - Јединица: lawyer_address.unit
+  - Јединица: lsa_lawyer_address.unit
     required: False
-  - Цити: lawyer_address.city
+  - Цити: lsa_lawyer_address.city
     default: |
       ${ sd_lawyer_city }    
-  - Држава: lawyer_address.state
+  - Држава: lsa_lawyer_address.state
     required: False
-  - поштански код: lawyer_address.postal_code
+  - поштански код: lsa_lawyer_address.postal_code
     default: |
       ${ sd_lawyer_zip }    
     required: False
-  - Држава: lawyer_address.country
+  - Држава: lsa_lawyer_address.country
     code: |
       countries_list()
     required: False
@@ -129,18 +129,18 @@ section: Износ таксе
 question: |
   Колики је износ накнаде за уговор о правним услугама?
 fields:
-  - Value: fee
+  - Value: lsa_fee
     datatype: currency
     min: 0
     currency symbol: €    
 under: |
-   Клијент: ${ client_individual }
-   Клијент Адреса: ${ client_address }
-   Адвокат: ${ lawyer_individual }
+   Клијент: ${ lsa_client_individual }
+   Клијент Адреса: ${ lsa_client_address }
+   Адвокат: ${ lsa_lawyer_individual }
    Адвокат Адреса: ${ lawyer_address }
 ---
 code: |
-  fee_amount = "{:.2f}".format(fee)
+  lsa_fee_amount = "{:.2f}".format(lsa_fee)
 ---
 mandatory: True
 progress: 75
@@ -148,7 +148,7 @@ section: Датум потписивања
 question: |
   Ког датума је клијент потписао уговор?
 fields:
-  - Date: date_signed
+  - Date: lsa_date_signed
     datatype: date
 ---
 mandatory: True
@@ -162,12 +162,12 @@ subquestion: |
   и да сте сагласни са условима споразума.
 signature: client_signature
 under: |
-  Клијент: ${ client_individual }<br>
-  Клијент Адреса: ${ client_address }<br>
-  Адвокат: ${ lawyer_individual }<br>
-  Адвокат Адреса: ${ lawyer_address }<br>
-  Надокнада Износ: ${ fee_amount } <br>
-  Датум Потписан: ${ date_signed }  
+  Клијент: ${ lsa_client_individual }<br>
+  Клијент Адреса: ${ lsa_client_address }<br>
+  Адвокат: ${ lsa_lawyer_individual }<br>
+  Адвокат Адреса: ${ lsa_lawyer_address }<br>
+  Надокнада Износ: ${ lsa_fee_amount } <br>
+  Датум Потписан: ${ lsa_date_signed }  
 ---
 mandatory: True
 progress: 100
