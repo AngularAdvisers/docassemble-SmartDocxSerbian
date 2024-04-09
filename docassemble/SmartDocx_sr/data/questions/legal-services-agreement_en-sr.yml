@@ -160,7 +160,7 @@ subquestion: |
   ваши одговори на питања у овом интервјуу 
   били истинити, према вашем најбољем сазнању 
   и да сте сагласни са условима споразума.
-signature: client_signature
+signature: lsa_client_signature
 under: |
   Клијент: ${ lsa_client_individual }<br>
   Клијент Адреса: ${ lsa_client_address }<br>
