@@ -14,7 +14,7 @@ metadata:
   revision_date: 2024-04-08
 ---
 include:
-  - init-data.yml
+  - init-data_sr.yml
 ---
 features:
   css: docassemble.SmartDocx_sr:static/sd.css
