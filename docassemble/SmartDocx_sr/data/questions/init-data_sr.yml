@@ -1,10 +1,9 @@
 mandatory: True
 code: |
   multi_user = True
+  set_language('sr')
 ---
 code: |
-  set_language('sr')
-  
   sd_client_full_name = ''
   sd_client_first_name = ''
   sd_client_last_name = ''
