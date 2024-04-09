@@ -19,9 +19,22 @@ metadata:
       organization: Andjelkovic Law Firm
   revision_date: 2024-04-05
 ---
+sections:
+  - Име клијента
+  - Адреса клијента
+  - Име адвоката
+  - Адреса адвоката
+  - Износ таксе
+  - Датум потписивања
+  - Потпис
+  - Завршено
+---
 objects:
   - client: Individual
 ---
+mandatory: True
+progress: 1
+section: Име клијента
 question: |
   Како се зове клијент?
 fields:
@@ -29,6 +42,7 @@ fields:
     default: |
       ${ sd_client_first_name }  
   - Средње име: client.name.middle
+    default:
     required: False
   - Презиме: client.name.last
     default: |
@@ -40,22 +54,25 @@ fields:
 objects:
   client_address: Address
 ---
+mandatory: True
+progress: 15
+section: Адреса клијента
 question: |
   Која је адреса вашег клијента?
 fields:
   - Адреса: client_address.address
-    default: |
-      ${ sd_client_street }
+     default: |
+      ${ sd_client_street }   
   - Јединица: client_address.unit
     required: False
   - Цити: client_address.city
     default: |
-      ${ sd_client_city }
+      ${ sd_client_city }    
   - Држава: client_address.state
     required: False
   - поштански код: client_address.postal_code
     default: |
-      ${ sd_client_zip }
+      ${ sd_client_zip }    
     required: False
   - Држава: client_address.country
     code: |
@@ -65,17 +82,20 @@ fields:
 objects:
   - lawyer: Individual
 ---
+mandatory: True
+progress: 30
+section: Име адвоката
 question: |
   Како се зове адвокат?
 fields:
   - Име: lawyer.name.first
     default: |
-      ${ sd_lawyer_first_name }
+      ${ sd_lawyer_first_name }    
   - Средње име: lawyer.name.middle
     required: False
   - Презиме: lawyer.name.last
     default: |
-      ${ sd_lawyer_last_name }
+      ${ sd_lawyer_last_name }    
   - Презиме: lawyer.name.suffix
     required: False
     code: name_suffix()
@@ -83,50 +103,63 @@ fields:
 objects:
   lawyer_address: Address
 ---
+mandatory: True
+progress: 45
+section: Адреса адвоката
 question: |
   Која је адреса вашег адвоката?
 fields:
   - Адреса: lawyer_address.address
     default: |
-      ${ sd_lawyer_street }
+      ${ sd_lawyer_street }    
   - Јединица: lawyer_address.unit
     required: False
   - Цити: lawyer_address.city
     default: |
-      ${ sd_lawyer_city }
+      ${ sd_lawyer_city }    
   - Држава: lawyer_address.state
     required: False
   - поштански код: lawyer_address.postal_code
     default: |
-      ${ sd_lawyer_zip }
+      ${ sd_lawyer_zip }    
     required: False
   - Држава: lawyer_address.country
     code: |
       countries_list()
     required: False
 ---
+mandatory: True
+progress: 60
+section: Износ таксе
 question: |
   Колики је износ накнаде за уговор о правним услугама?
 fields:
   - Value: fee
     datatype: currency
     min: 0
+    currency symbol: €    
 under: |
-  ${ client }
-  ${ client_address }
-  ${ lawyer }
-  ${ lawyer_address }
+   Клијент: ${ client }
+   Клијент Адреса: ${ client_address }
+   Адвокат: ${ lawyer }
+   Адвокат Адреса: ${ lawyer_address }
 ---
 code: |
   fee_amount = "{:.2f}".format(fee)
 ---
+mandatory: True
+progress: 75
+section: Датум потписивања
 question: |
   Ког датума је клијент потписао уговор?
 fields:
   - Date: date_signed
     datatype: date
 ---
+mandatory: True
 question: Молимо потпишите се испод
+progress: 90
+section: Потпис
 subquestion: |
   BПотписивањем у наставку потврђујете да су
   ваши одговори на питања у овом интервјуу 
@@ -134,23 +167,21 @@ subquestion: |
   и да сте сагласни са условима споразума.
 signature: client_signature
 under: |
-  ${ client }
+  Клијент: ${ client }<br>
+  Клијент Адреса: ${ client_address }<br>
+  Адвокат: ${ lawyer }<br>
+  Адвокат Адреса: ${ lawyer_address }<br>
+  Надокнада Износ: ${ fee_amount } <br>
+  Датум Потписан: ${ date_signed }  
 ---
 mandatory: True
+progress: 100
+section: Завршено
 question: |
   Ovde je vaš dokument.
 attachment:
   - name: Правни Услуге Договор Документ
     filename: leagal_services_agreenment_document
-    content: |
-      [BOLDCENTER] Leagal Services Agreenment Document
-      Client: ${ client }
-      Client Address: ${ client_address }
-      Lawyer: ${ lawyer }
-      Lawyer Address: ${ lawyer_address }
-      Legal Service Agreement Fee Amount: ${ fee_amount }
-      Date Client Sign Agreement ${ date_signed }
-      Client Signature: ${ client_signature }    
     docx template file: legal-services-agreement_en-sr.docx
     variable name: doc_file
     valid formats:
@@ -163,7 +194,5 @@ mandatory: True
 code: |
   doc_path = doc_file.path()
   bucket_name = 'smart-docx-preview'
-
   upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
-
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)      
