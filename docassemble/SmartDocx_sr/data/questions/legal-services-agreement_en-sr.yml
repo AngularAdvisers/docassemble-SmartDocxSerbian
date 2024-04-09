@@ -195,4 +195,5 @@ code: |
   fileName = filename
    
   upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
+  set_language('en')
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)
