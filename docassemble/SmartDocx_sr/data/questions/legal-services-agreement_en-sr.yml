@@ -1,10 +1,4 @@
 ---
-include:
-  - init-data.yml
----
-features:
-  css: docassemble.SmartDocx_sr:static/sd.css
----
 metadata:
   title: |
     Legal Services Agreenment Document
@@ -17,7 +11,15 @@ metadata:
       organization: Andjelkovic Law Firm
     - name: Nemanja Anđelković
       organization: Andjelkovic Law Firm
-  revision_date: 2024-04-05
+  revision_date: 2024-04-08
+---
+include:
+  - init-data.yml
+---
+features:
+  navigation: True
+  progress bar: True  
+  css: docassemble.SmartDocx_sr:static/sd.css
 ---
 sections:
   - Име клијента
