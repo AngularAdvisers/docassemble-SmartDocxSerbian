@@ -17,7 +17,7 @@ include:
   - init-data_sr.yml
 ---
 features:
-  css: docassemble.SmartDocx_sr:static/sd.css
+  css: docassemble.SmartDocx_sr:data/static/sd.css
   navigation: True
   progress bar: True  
 ---
