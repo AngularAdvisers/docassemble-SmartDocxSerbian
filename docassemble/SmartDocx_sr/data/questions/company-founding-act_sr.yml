@@ -6,7 +6,7 @@ include:
   - init-data.yml
 ---  
 features:
-  css: docassemble.SmartDocx_sr:static/sd.css
+  css: docassemble.SmartDocx_sr:data/static/sd_sr.css
 ---
 metadata:
   title: |
