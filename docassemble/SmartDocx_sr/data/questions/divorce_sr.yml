@@ -50,7 +50,8 @@ code: |
 ---
 mandatory: True
 question: |
-  To ${ court_name } ${ start_data }
+  ОСНОВНОМ СУДУ У ЦОУНТ ИМЕ
+# To ${ court_name } ${ start_data }
 fields:
   - note: ТУЖБА
   - "ради развода брака": opt_divorce
