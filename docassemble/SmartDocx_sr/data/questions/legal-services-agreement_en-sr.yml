@@ -38,6 +38,7 @@ objects:
   - lsa_lawyer_address: Address
 ---
 mandatory: True
+initial: True
 code: |
   set_language('sr')
 ---
