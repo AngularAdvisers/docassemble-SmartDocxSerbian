@@ -61,27 +61,27 @@ fields:
     datatype: yesnowide
   - "са привременом мером ": opt_merom
     datatype: yesnowide
-  - Датум случаја: case_date
+  - Matter date: case_date
     datatype: date
-  - "Колико малолетне деце": child_amount
+  - "How many underaged children": child_amount
     datatype: integer
-  - "Имена деце": child_names
-  - "JMBG": child_jmbg
+  - "Children Names": child_names
+  - "Children JMBG": child_jmbg
   - html: |
       <hr>
     show if:
       variable: opt_divorce
       is: True
-    - "Датум венчања": date_marriage
+  - "Date of Marriage": date_marriage
     datatype: date
     show if:
       variable: opt_divorce
       is: True
-  - "Место венчања": place_marriage
+  - "Place of Marriage": place_marriage
     show if:
       variable: opt_divorce
       is: True
-  - "Серијски број венчања": cert_marriage
+  - "Serial Num of Marriage Cert": cert_marriage
     show if:
       variable: opt_divorce
       is: True
