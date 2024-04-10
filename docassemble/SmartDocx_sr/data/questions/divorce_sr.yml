@@ -3,7 +3,7 @@ include:
   - init-data_sr.yml
 ---
 features:
-  css: docassemble.SmartDocx_sr:static/sd.css
+  css: docassemble.SmartDocx_sr:static/sd_sr.css
 ---
 metadata:
   title: |
@@ -170,7 +170,7 @@ mandatory: True
 question: Ovde je vaš dokument.
 attachment:
   - name: Divorce
-    file: fam_file
+    file: divorce_file
     variable name: doc_file
     docx template file: divorce_sr.docx
     valid formats:
@@ -183,7 +183,10 @@ mandatory: True
 code: |
   doc_path = doc_file.path()
   bucket_name = 'smart-docx-preview'
-
+  
+  matterId = matter_id
+  workItemId = work_item_id
+  fileName = filename
+   
   upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
-
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)

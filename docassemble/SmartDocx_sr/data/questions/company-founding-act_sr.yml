@@ -3,8 +3,9 @@ include:
   - init-data_sr.yml
 ---
 include:
-  - init-data.ymlfeatures:
+  - init-data.yml
 ---  
+features:
   css: docassemble.SmartDocx_sr:static/sd.css
 ---
 metadata:
