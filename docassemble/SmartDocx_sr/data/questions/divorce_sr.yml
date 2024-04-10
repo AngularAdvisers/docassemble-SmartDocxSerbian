@@ -61,27 +61,27 @@ fields:
     datatype: yesnowide
   - "са привременом мером ": opt_merom
     datatype: yesnowide
-  - Matter date: case_date
+  - Датум потписивања: case_date
     datatype: date
-  - "How many underaged children": child_amount
+  - "Колико малолетне деце": child_amount
     datatype: integer
-  - "Children Names": child_names
-  - "Children JMBG": child_jmbg
+  - "Имена деце": child_names
+  - "Број ЈМБГ": child_jmbg
   - html: |
       <hr>
     show if:
       variable: opt_divorce
       is: True
-  - "Date of Marriage": date_marriage
+  - "Датум венчања": date_marriage
     datatype: date
     show if:
       variable: opt_divorce
       is: True
-  - "Place of Marriage": place_marriage
+  - "Место венчања": place_marriage
     show if:
       variable: opt_divorce
       is: True
-  - "Serial Num of Marriage Cert": cert_marriage
+  - "Серијски број венчања": cert_marriage
     show if:
       variable: opt_divorce
       is: True
@@ -173,7 +173,7 @@ code: |
 mandatory: True
 question: Ovde je vaš dokument.
 attachment:
-  - name: Divorce
+  - name: Развод
     file: divorce_file
     variable name: doc_file
     docx template file: divorce_sr.docx
