@@ -52,7 +52,7 @@ mandatory: True
 question: |
   У ком граду се води ваш случај?
 fields: 
-  - County: county
+  - Град: county
     choices:
       - Београд
       - Нови Сад
@@ -61,7 +61,7 @@ mandatory: True
 question: |
   На ком суду се води ваш случај?
 fields: 
-  - Court name: court
+  - Име суда: court
     choices:
       - Први основни суд у Београду
       - Други основни суд у Београду
