@@ -52,7 +52,7 @@ mandatory: True
 question: |
   У ком граду се води ваш случај?
 fields: 
-  - County: граду
+  - County: county
     choices:
       - Београд
       - Нови Сад
