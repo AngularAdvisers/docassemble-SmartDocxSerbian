@@ -50,9 +50,28 @@ code: |
 ---
 mandatory: True
 question: |
+  What county is your case being heard in?
+fields: 
+  - County: county
+    choices:
+      - Barnstable County
+      - Berkshire County
+      - Bristol County
+      - Dukes County
+      - Essex County
+      - Franklin County
+      - Hampden County
+      - Hampshire County
+      - Middlesex County
+      - Nantucket County
+      - Norfolk County
+      - Plymouth County
+      - Suffolk County
+      - Worcester County
+---
+mandatory: True
+question: |
   What court is your case being heard in?
-subquestion: |
-  Copy the name of the court and county from the upper-left-hand corner of the Summons and Complaint form.  
 fields: 
   - Court name: court
     choices:
@@ -95,22 +114,6 @@ fields:
       - West Roxbury Division Boston Municipal Court
       - Woburn District Court
       - Worcester District Court
-  - County: county
-    choices:
-      - Barnstable County
-      - Berkshire County
-      - Bristol County
-      - Dukes County
-      - Essex County
-      - Franklin County
-      - Hampden County
-      - Hampshire County
-      - Middlesex County
-      - Nantucket County
-      - Norfolk County
-      - Plymouth County
-      - Suffolk County
-      - Worcester County
 ---
 mandatory: True
 question: |
