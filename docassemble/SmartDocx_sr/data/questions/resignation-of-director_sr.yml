@@ -1,0 +1,114 @@
+metadata:
+  title: |
+    Resignation of Director Document
+  short title: |
+    Resignation of Director
+  description: |
+    This the Resignation of Director document
+  authors:
+    - name: William Best
+      organization: Andjelkovic Law Firm
+    - name: Nemanja Anđelković
+      organization: Andjelkovic Law Firm
+  revision_date: 2024-04-11
+---
+include:
+  - init-data_sr.yml
+---
+features:
+  css: docassemble.SmartDocx_sr:data/static/sd_sr.css
+  navigation: True
+  progress bar: True  
+---
+sections:
+  - Client's Name
+  - Company Information
+  - Rejection Information
+  - Signing Date
+  - Signature
+  - Completed
+---
+objects:
+  - rod_client_individual: Individual
+---
+initial: True
+code: |
+  set_language('sr')
+---
+mandatory: True
+progress: 1
+section: Client's Name
+question: |
+  What is the client's name?
+fields:
+  - First Name: rod_client_individual.name.first
+  - Middle Name: rod_client_individual.name.middle
+    required: False
+  - Last Name: rod_client_individual.name.last
+  - Suffix: rod_client_individual.name.suffix
+    required: False
+    code: name_suffix()
+---
+mandatory: True
+progress: 30
+section: Company Information
+question: What is the Company information?
+fields:
+  - Company Name: rod_company_name
+  - Company ID: rod_company_id
+---
+mandatory: True
+progress: 45
+section: Rejection Information
+question: What is the Rejection information?
+fields:
+  - Reason: rod_rejection_reason
+  - Recipient: rod_rejection_recipient
+---  
+mandatory: True
+progress: 60
+section: Signing Date
+question: |
+  What date did the client sign the agreement?
+fields:
+  - Date: rod_date_signed
+    datatype: date
+---
+mandatory: True
+progress: 80
+section: Signature
+question: Please sign below
+subquestion: |
+  By signing below, you acknowledge that your answers to the questions
+  in this interview were truthful, to the best of your knowledge and you
+  agree to the terms of the agreement.
+signature: rod_client_signature
+under: |
+  ${ rod_client_individual }
+---
+mandatory: True
+progress: 100
+section: Completed
+question: |
+  Your documents are ready. Please print and file!
+attachment:
+  - name: Resignation of Directo Document
+    filename: resignation_of_director_document
+    docx template file: resignation-of-director_sr.docx
+    variable name: doc_file
+    valid formats:
+      - docx
+buttons:
+  - Сачувај и изађи: continue
+---
+mandatory: True
+code: |
+  doc_path = doc_file.path()
+  bucket_name = 'smart-docx-preview'
+  
+  matterId = matter_id
+  workItemId = work_item_id
+  fileName = filename
+   
+  upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
+  command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)      
