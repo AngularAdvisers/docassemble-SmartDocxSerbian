@@ -72,7 +72,6 @@ attachments:
     filename: ostavka
     docx template file: general-employment-contract-agreement_sr.docx
     valid formats:
-      - pdf
       - docx
 mandatory: True
 buttons:

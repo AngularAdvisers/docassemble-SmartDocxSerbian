@@ -68,7 +68,6 @@ attachments:
     docx template file: statement-of-liquidation-manager_sr.docx
     variable name: doc_file
     valid formats:
-      - pdf
       - docx
 mandatory: True
 buttons:

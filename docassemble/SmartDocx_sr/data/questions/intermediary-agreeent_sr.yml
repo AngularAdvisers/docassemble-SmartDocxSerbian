@@ -55,7 +55,6 @@ attachment:
     variable name: doc_file
     docx template file: intermediary-agreeent_sr.docx
     valid formats:
-      - pdf
       - docx
 buttons:
   - Сачувај и изађи: continue
