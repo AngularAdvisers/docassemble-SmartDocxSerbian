@@ -71,7 +71,7 @@ fields:
 ---
 mandatory: True
 question: |
-  ОСНОВНОМ СУДУ У СУД ИМЕ
+  ОСНОВНОМ СУДУ У СУД ${ court }
 # To ${ court_name } ${ start_data }
 fields:
   - note: ТУЖБА
