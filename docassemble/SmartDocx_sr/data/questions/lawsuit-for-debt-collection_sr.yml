@@ -1,19 +1,37 @@
 ---
+metadata:
+  title: |
+    Lawsuit for debt collection
+  short title: |
+    Debt-collection
+  description: |
+    This the lawsuit for debt collection document
+  authors:
+    - name: William Best
+      organization: Andjelkovic Law Firm
+    - name: Nemanja Anđelković
+      organization: Andjelkovic Law Firm
+  revision_date: 2024-04-12
+---
 include:
   - init-data_sr.yml
 ---
-include:
-  - init-data.ymlfeatures:
----  
+features:
   css: docassemble.SmartDocx_sr:data/static/sd_sr.css
+  navigation: True
+  progress bar: True  
 ---
-metadata:
-  title: |
-    тужба за наплату дуга
-  short title: |
-    тужба за наплату дуга
-  description: |
-    тужба за наплату дуга
+sections:
+  - Client's Name
+  - Client's Address
+  - Defendan's Name
+  - Defendan's Address
+  - Lawyer's Name
+  - Lawyer's Address
+  - Debt Amount
+  - Signing Date
+  - Signature
+  - Completed
 ---
 objects:
   - client: Individual
@@ -21,39 +39,21 @@ objects:
   - defendant: Individual
   - court: Organisation
 ---
-mandatory: True
+initial: True
 code: |
+  set_language('sr')
   multi_user = True
 ---
-code: |
-  court_name = ''
-  client_name_first = ''
-  client_name_last = ''
-  start_data = None
-  client.name.first = ''
-  client.name.last = ''
-  client.address = ''
-  client.jmbg = ''
-  
-  lawyer.name.first = ''
-  lawyer.name.last = ''
-  lawyer.address = ''
-  
-  defendant.name.first = ''
-  defendant.name.last = ''
-  defendant.address = ''
-  defendant.jmbg = ''
-  
-  custody_party = ''
----
 mandatory: True
-question: Ovde je vaš dokument.
+progress: 100
+section: Завршено
+question: |
+  Ovde je vaš dokument.
 attachment:
-  - name: Summary of Benefits
-    # filename: benefits_summary
-    file: fam_file
+  - name: Тужба за наплату дуга
+    filename: lawsuit-for-debt-collection
+    docx template file: lawsuit-for-debt-collection-sr.docx
     variable name: doc_file
-    docx template file: lawsuit-for-debt-collection_sr.docx
     valid formats:
       - docx
 buttons:
@@ -63,6 +63,10 @@ mandatory: True
 code: |
   doc_path = doc_file.path()
   bucket_name = 'smart-docx-preview'
-
+  
+  matterId = matter_id
+  workItemId = work_item_id
+  fileName = filename
+   
   upload_message = upload_to_s3(doc_path, bucket_name, 'generated/' + fileName)
   command('leave', url='https://smart-docx.com/assets/redirect.html?matterId=' + matterId)

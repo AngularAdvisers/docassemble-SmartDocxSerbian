@@ -40,6 +40,7 @@ objects:
 initial: True
 code: |
   set_language('sr')
+  multi_user = True
 ---
 mandatory: True
 progress: 1
