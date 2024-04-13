@@ -35,6 +35,7 @@ initial: True
 code: |
   set_language('sr')
 ---
+mandatory: True
 code: |
   lhVar = sd_firm_header
   lfVar = sd_firm_footer
