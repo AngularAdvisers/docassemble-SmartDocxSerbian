@@ -35,6 +35,10 @@ initial: True
 code: |
   set_language('sr')
 ---
+code: |
+  lhVar = sd_firm_header
+  lfVar = sd_firm_footer
+---
 mandatory: True
 progress: 1
 section: Име клијента

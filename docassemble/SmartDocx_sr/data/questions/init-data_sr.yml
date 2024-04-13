@@ -64,6 +64,8 @@ code: |
   sd_defect_info = ''
   sd_percentage = ''
   sd_amount = ''
+  sd_firm_header = ''
+  sd_firm_footer = ''
 ---
 code: |
   def upload_to_s3(doc_path, bucket_name, file_name):
