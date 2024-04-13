@@ -36,11 +36,6 @@ code: |
   set_language('sr')
 ---
 mandatory: True
-code: |
-  lhVar = sd_firm_header
-  lfVar = sd_firm_footer
----
-mandatory: True
 progress: 1
 section: Име клијента
 question: |
@@ -89,6 +84,11 @@ subquestion: |
 signature: rod_client_signature
 under: |
   ${ rod_client_individual }
+---
+mandatory: True
+code: |
+  lhVar = sd_firm_footer
+  lfVar = sd_firm_footer
 ---
 mandatory: True
 progress: 100
