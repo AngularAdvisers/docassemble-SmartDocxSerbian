@@ -86,11 +86,6 @@ under: |
   ${ rod_client_individual }
 ---
 mandatory: True
-code: |
-  lhVar = sd_firm_footer
-  lfVar = sd_firm_footer
----
-mandatory: True
 progress: 100
 section: Завршено
 question: |
