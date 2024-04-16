@@ -60,22 +60,22 @@ fields:
 mandatory: True
 question: |
   На ком суду се води ваш случај?
-fields: 
-  - name: Име суда
-    id: court
-    choices: 
-      '{% if county == "Београд" %}':
+fields:
+  - Име суда: court
+    '{% if county == "Београд" %}':
+      choices:
         - Први основни суд у Београду
         - Други основни суд у Београду
         - Трећи основни суд у Београду
-      '{% else %}':
+    '{% else %}':
+      choices:
         - Основни суд у Новом Саду
         - Основни суд у Бачкој Паланци
 ---
 mandatory: True
 question: |
-  ${ court }
-# ОСНОВНОМ СУДУ У СУД 
+ ${ court }
+# ОСНОВНОМ СУДУ У СУД
 # To ${ court_name } ${ start_data }
 fields:
   - note: ТУЖБА
